@@ -51,9 +51,21 @@ struct TopMoviePreview: View {
                         
                     }
                 }
-                Text("Row of buttons")
+                
+                HStack{
+                    SmallVerticalButton(isOnImage: "checkmarks", isOffImage: "plus", isOn: true, text: "My List"){
+                        
+                    }
+                    Text("Play Button")
+                    
+                    SmallVerticalButton(isOnImage: "info.cicle", isOffImage: "info.cicle", isOn: true, text: "Info"){
+                        
+                    }
+                }
+                
             }
-        }.foregroundColor(.white)
+        }
+        .foregroundColor(.white)
     }
 }
 
