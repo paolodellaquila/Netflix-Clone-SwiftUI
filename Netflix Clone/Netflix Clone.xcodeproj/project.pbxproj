@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4815E8A525A240F200567C42 /* WhiteBUtton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4815E8A425A240F200567C42 /* WhiteBUtton.swift */; };
+		4815E8AE25A256B900567C42 /* AppBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4815E8AD25A256B900567C42 /* AppBar.swift */; };
 		482A69012572FFFA00EF2363 /* Netflix_CloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482A69002572FFFA00EF2363 /* Netflix_CloneApp.swift */; };
 		482A69032572FFFA00EF2363 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482A69022572FFFA00EF2363 /* ContentView.swift */; };
 		482A69052572FFFB00EF2363 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 482A69042572FFFB00EF2363 /* Assets.xcassets */; };
@@ -25,6 +27,8 @@
 		114F2CBB399D9336FADD319B /* Pods-Netflix Clone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Netflix Clone.debug.xcconfig"; path = "Target Support Files/Pods-Netflix Clone/Pods-Netflix Clone.debug.xcconfig"; sourceTree = "<group>"; };
 		23FAA38BAA469766A736A2CB /* Pods-Netflix Clone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Netflix Clone.release.xcconfig"; path = "Target Support Files/Pods-Netflix Clone/Pods-Netflix Clone.release.xcconfig"; sourceTree = "<group>"; };
 		4134D8669DC823AA1645B872 /* Pods_Netflix_Clone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Netflix_Clone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4815E8A425A240F200567C42 /* WhiteBUtton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteBUtton.swift; sourceTree = "<group>"; };
+		4815E8AD25A256B900567C42 /* AppBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBar.swift; sourceTree = "<group>"; };
 		482A68FD2572FFFA00EF2363 /* Netflix Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Netflix Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		482A69002572FFFA00EF2363 /* Netflix_CloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Netflix_CloneApp.swift; sourceTree = "<group>"; };
 		482A69022572FFFA00EF2363 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				486710A3257AEC8C003B6231 /* SmallVerticalButton.swift */,
+				4815E8A425A240F200567C42 /* WhiteBUtton.swift */,
+				4815E8AD25A256B900567C42 /* AppBar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -268,6 +274,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				482A692A2573050400EF2363 /* GlobalHelper.swift in Sources */,
+				4815E8AE25A256B900567C42 /* AppBar.swift in Sources */,
+				4815E8A525A240F200567C42 /* WhiteBUtton.swift in Sources */,
 				486710A4257AEC8C003B6231 /* SmallVerticalButton.swift in Sources */,
 				486B7E482578486F00ABC58B /* TopMoviePreview.swift in Sources */,
 				482A691B257303E700EF2363 /* HomeView.swift in Sources */,

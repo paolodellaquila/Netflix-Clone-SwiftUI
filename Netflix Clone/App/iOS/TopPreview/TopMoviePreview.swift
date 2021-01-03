@@ -52,18 +52,36 @@ struct TopMoviePreview: View {
                     }
                 }
                 
+                Spacer().frame(height: 10)
+                
                 HStack{
-                    SmallVerticalButton(isOnImage: "checkmarks", isOffImage: "plus", isOn: true, text: "My List"){
-                        
-                    }
-                    Text("Play Button")
                     
-                    SmallVerticalButton(isOnImage: "info.cicle", isOffImage: "info.cicle", isOn: true, text: "Info"){
+                    Spacer()
+                    
+                    SmallVerticalButton(isOnImage: "checkmark", isOffImage: "plus", isOn: true, text: "My List"){
                         
                     }
+                
+                    Spacer()
+                    
+                    WhiteBUtton(text: "Play", imageName: "play.fill", action: {
+                        
+                    })
+                    .frame(width: 120)
+                
+                    Spacer()
+                    
+                    SmallVerticalButton(isOnImage: "info.circle", isOffImage: "info.cicle", isOn: true, text: "Info"){
+                        
+                    }
+                    
+                    Spacer()
                 }
                 
-            }
+            }.background(
+                LinearGradient.blackOpacityGradient
+                    .padding(.top, 250)
+            )
         }
         .foregroundColor(.white)
     }

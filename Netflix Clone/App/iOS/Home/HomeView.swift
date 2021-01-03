@@ -11,6 +11,8 @@ struct HomeView: View {
     //Home view model
     var vm = HomeVM()
     
+    let screen = UIScreen.main.bounds
+    
     //Design
     var body: some View {
         ZStack{
@@ -20,6 +22,16 @@ struct HomeView: View {
             //main vstack
             ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false) {
                 LazyVStack {
+                     
+                    AppBar()
+                        .padding(.leading, 10)
+                        .padding(.trailing, 30)
+                    
+                    TopMoviePreview(movie: exampleMovie2)
+                        .frame(width: screen.width)
+                        .padding(.top, -120)
+                        .zIndex(-1)
+
                     ForEach(vm.allCategories, id: \.self) { category in
                         VStack{
                             HStack{
