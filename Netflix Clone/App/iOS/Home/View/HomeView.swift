@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct HomeView: View {
+    
     //Home view model
-    var vm = HomeVM()
+    @StateObject var homeViewModel = HomeVM()
     
     let screen = UIScreen.main.bounds
     
@@ -32,7 +33,7 @@ struct HomeView: View {
                         .padding(.top, -120)
                         .zIndex(-1)
 
-                    ForEach(vm.allCategories, id: \.self) { category in
+                    ForEach(homeViewModel.allCategories, id: \.self) { category in
                         VStack{
                             HStack{
                                 Text(category)
@@ -43,7 +44,7 @@ struct HomeView: View {
                             
                             ScrollView(.horizontal, showsIndicators: false) {
                                 LazyHStack {
-                                    ForEach(vm.getMovie(forCat: category)){ movie in
+                                    ForEach(homeViewModel.getMovie(forCat: category)){ movie in
                                         
                                         StandardHomeMovie(movie: movie)
                                             .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 200)
