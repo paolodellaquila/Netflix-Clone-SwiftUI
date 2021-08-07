@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     //Home view model
-    @StateObject var homeViewModel = HomeVM()
+    var homeViewModel = HomeVM()
     
     let screen = UIScreen.main.bounds
     
