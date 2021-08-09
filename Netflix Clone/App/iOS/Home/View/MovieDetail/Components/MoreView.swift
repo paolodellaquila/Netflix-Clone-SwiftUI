@@ -21,12 +21,10 @@ struct MoreView: View {
     
     var body: some View {
         
-        ScrollView {
-            LazyVGrid(columns: columns) {
-                
-                ForEach(0..<movies.count) {index in
-                    StandardHomeMovie(movie: movies[index])
-                }
+        LazyVGrid(columns: columns) {
+            
+            ForEach(0..<movies.count) {index in
+                StandardHomeMovie(movie: movies[index])
             }
         }
     }

@@ -13,10 +13,15 @@ struct CustomTabSwitcher: View {
     //2. state variable to keep refresh of UI
     @State private var currentTab: CustomTab = .episode
     
+    
     //external variable
     var tabs: [CustomTab]
 
     var movie: Movie
+    
+    @Binding var showSeasonPicker: Bool
+    @Binding var selectedSeason: Int
+    
     
     func widthForTab(tab: CustomTab) -> CGFloat {
         return tab.rawValue.widthOfString(usingFont: .systemFont(ofSize: 16, weight: .bold))
@@ -59,9 +64,9 @@ struct CustomTabSwitcher: View {
             
             switch currentTab{
             case .episode:
-                Text("episode")
+                EpisodeView(episodes: movie.episodes ?? [], showSeasonPicker: $showSeasonPicker, selectedSeason: $selectedSeason)
             case .trailers:
-                Text("trailers")
+                TrailersView(trailers: movie.trailers)
             case .more:
                 MoreView(movies: movie.moreLikeThisMovies)
             }
@@ -82,7 +87,7 @@ struct CustomTabSwitcher_Previews: PreviewProvider {
         ZStack{
             Color.black.edgesIgnoringSafeArea(.all)
             
-            CustomTabSwitcher(tabs: [.episode, .trailers, .more], movie: exampleMovie1)
+            CustomTabSwitcher(tabs: [.episode, .trailers, .more], movie: exampleMovie1, showSeasonPicker: .constant(false), selectedSeason: .constant(1))
         }
         
 

@@ -14,6 +14,8 @@ struct HomeView: View {
     
     let screen = UIScreen.main.bounds
     
+    @State private var movieDetailToShow: Movie? = nil
+    
     //Design
     var body: some View {
         ZStack{
@@ -28,7 +30,7 @@ struct HomeView: View {
                         .padding(.leading, 10)
                         .padding(.trailing, 30)
                     
-                    TopMoviePreview(movie: exampleMovie2)
+                    TopMoviePreview(movie: exampleMovie1)
                         .frame(width: screen.width)
                         .padding(.top, -120)
                         .zIndex(-1)
@@ -49,12 +51,23 @@ struct HomeView: View {
                                         StandardHomeMovie(movie: movie)
                                             .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 200)
                                             .padding(.horizontal, 20)
+                                            .onTapGesture {
+                                                movieDetailToShow = movie
+                                            }
                                     }
                                 }
                             }
                         }
                     }
                 }
+            }
+            
+            if movieDetailToShow != nil{
+                
+                //navigate to other custom screen
+                MovieDetail(movie: movieDetailToShow!, movieDetailToShow: $movieDetailToShow)
+                    .animation(.easeIn)
+                    .transition(.opacity)
             }
         }
         .foregroundColor(.white)
