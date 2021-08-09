@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct MovieDetail: View {
-    
     var movie: Movie
     
-    @State var screen = UIScreen.main.bounds
+    let screen = UIScreen.main.bounds
     
     @State private var showSeasonPicker = false
     @State private var selectedSeason = 1
@@ -19,45 +18,41 @@ struct MovieDetail: View {
     @Binding var movieDetailToShow: Movie?
     
     var body: some View {
-        
-        ZStack{
+        ZStack {
             Color.black
                 .edgesIgnoringSafeArea(.all)
             
             ZStack {
-                VStack{
-                    HStack{
+                VStack {
+                    HStack {
                         Spacer()
                         
                         Button(action: {
                             movieDetailToShow = nil
-                            
                         }, label: {
-
                             Image(systemName: "xmark.circle")
                                 .font(.system(size: 28))
                         })
-            
                     }
-                    .padding(.horizontal,22)
+                    .padding(.horizontal, 22)
                     
-                    ScrollView(.vertical, showsIndicators: false){
-                        
-                        VStack{
+                    ScrollView(.vertical, showsIndicators: false) {
+                        VStack {
                             
                             StandardHomeMovie(movie: movie)
-                                .frame(width: screen.width / 2.5, height: 250)
+                                .frame(width: screen.width / 2.5)
                             
                             MovieInfoSubheadline(movie: movie)
                             
-                            Text(movie.promotionHeadline ?? "")
-                                .bold()
-                                .font(.headline)
+                            if movie.promotionHeadline != nil {
+                                Text(movie.promotionHeadline!)
+                                    .bold()
+                                    .font(.headline)
+                            }
                             
-                            PlayButton(text: "Play", imageName: "play.fill", backgroundColor: .red, action: {
-                                
-                            })
-                            
+                            PlayButton(text: "Play", imageName: "play.fill", backgroundColor: .red) {
+                                //
+                            }
                             
                             CurrentEpisodeInformation(movie: movie)
                             
@@ -85,54 +80,47 @@ struct MovieDetail: View {
                             
                             
                         }
-                        .padding(.horizontal, 20)
+                        .padding(.horizontal, 10)
                     }
                     Spacer()
                 }
                 .foregroundColor(.white)
-            }
-            
-            if(showSeasonPicker){
                 
-                Group {
-                    Color.black.opacity(0.9)
-                    
-                    VStack(spacing: 40){
-                       Spacer()
+                if showSeasonPicker {
+                    Group {
+                        Color.black.opacity(0.9)
                         
-                        ForEach(0..<(movie.numberOfSeason ?? 0)){season in
+                        VStack(spacing: 40) {
+                            Spacer()
+                            
+                            ForEach(0..<(movie.numberOfSeason ?? 0)) { season in
+                                Button(action: {
+                                    self.selectedSeason = season + 1
+                                    self.showSeasonPicker = false
+                                }, label: {
+                                    Text("Season \(season + 1)")
+                                        .foregroundColor(selectedSeason == season + 1 ? .white : .gray)
+                                        .bold()
+                                        .font(selectedSeason == season + 1 ? .title : .title2)
+                                })
+                            }
+                            
+                            Spacer()
                             
                             Button(action: {
-                                self.selectedSeason = season + 1
                                 self.showSeasonPicker = false
                             }, label: {
-                                Text("Season \(season + 1)")
-                                    .foregroundColor(selectedSeason == season + 1 ? .white : .gray)
-                                    .bold()
-                                    .font(selectedSeason == season + 1 ? .title : .title2)
-                                
+                                Image(systemName: "x.circle.fill")
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 40))
+                                    .scaleEffect(x: 1.1)
                             })
+                            .padding(.bottom, 30)
                         }
-                        
-                        
-                        Spacer()
-                        
-                        Button(action: {
-                            self.showSeasonPicker = false
-                        }, label: {
-                            
-                            Image(systemName: "x.circle.fill")
-                                .foregroundColor(.white)
-                                .font(.system(size: 40))
-                                .scaleEffect(x: 1.1)
-                        })
-                        padding(.bottom, 30)
-
                     }
+                    .edgesIgnoringSafeArea(.all)
                 }
-                .edgesIgnoringSafeArea(.all)
             }
-            
         }
     }
 }
@@ -146,7 +134,6 @@ struct MovieDetail_Previews: PreviewProvider {
 
 
 struct MovieInfoSubheadline: View {
-    
     var movie: Movie
     
     var body: some View {
@@ -166,11 +153,10 @@ struct MovieInfoSubheadline: View {
 }
 
 struct RatingView: View {
-    
     var rating: String
     
     var body: some View {
-        ZStack{
+        ZStack {
             Rectangle()
                 .foregroundColor(.gray)
             
@@ -184,18 +170,19 @@ struct RatingView: View {
 }
 
 struct CastInfo: View {
-    
     var movie: Movie
     
     var body: some View {
         VStack(spacing: 3) {
             HStack {
                 Text("Cast: \(movie.cast)")
+                
                 Spacer()
             }
             
             HStack {
                 Text("Creators: \(movie.creators)")
+                
                 Spacer()
             }
         }
@@ -206,11 +193,10 @@ struct CastInfo: View {
 }
 
 struct CurrentEpisodeInformation: View {
-    
     var movie: Movie
     
     var body: some View {
-        Group{
+        Group {
             HStack {
                 Text(movie.episodeInfoDisplay)
                     .bold()

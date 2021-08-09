@@ -92,10 +92,8 @@
 		4813327B26BC500B00AEE30C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				48F22D5426BE9F1500C8EC3E /* VideoPlayer */,
-				48F22D4726BE8B8800C8EC3E /* Home */,
-				48F22D4626BE8B4200C8EC3E /* MovieDetail */,
-				486B7E412578483D00ABC58B /* TopPreview */,
+				48F22D4826BE8B9800C8EC3E /* Components */,
+				482A69152573021500EF2363 /* HomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -113,8 +111,6 @@
 			children = (
 				48F6390F26BD337E0063C500 /* Helper */,
 				482A69232573046800EF2363 /* Movie.swift */,
-				48F6391226BD3D0A0063C500 /* Episode.swift */,
-				48F22D5026BE9C9A00C8EC3E /* Trailer.swift */,
 				48303EC326C059AE007C4FEE /* LoopingPlayer.swift */,
 			);
 			path = Model;
@@ -162,6 +158,7 @@
 		482A69112573009E00EF2363 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				48F22D4626BE8B4200C8EC3E /* MovieDetail */,
 				482A6937257313F500EF2363 /* Home */,
 				482A69092572FFFB00EF2363 /* Info.plist */,
 			);
@@ -206,27 +203,38 @@
 			path = TopPreview;
 			sourceTree = "<group>";
 		};
+		48E542FC26C1282D00549A12 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				48F6391026BD33C50063C500 /* MovieDetail.swift */,
+				48F22D4926BE8BAB00C8EC3E /* Components */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		48E542FD26C1284E00549A12 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				48F6391226BD3D0A0063C500 /* Episode.swift */,
+				48F22D5026BE9C9A00C8EC3E /* Trailer.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		48F22D4626BE8B4200C8EC3E /* MovieDetail */ = {
 			isa = PBXGroup;
 			children = (
-				48F22D4926BE8BAB00C8EC3E /* Components */,
-				48F6391026BD33C50063C500 /* MovieDetail.swift */,
+				48E542FD26C1284E00549A12 /* Model */,
+				48E542FC26C1282D00549A12 /* View */,
 			);
 			path = MovieDetail;
-			sourceTree = "<group>";
-		};
-		48F22D4726BE8B8800C8EC3E /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				48F22D4826BE8B9800C8EC3E /* Components */,
-				482A69152573021500EF2363 /* HomeView.swift */,
-			);
-			path = Home;
 			sourceTree = "<group>";
 		};
 		48F22D4826BE8B9800C8EC3E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				486B7E412578483D00ABC58B /* TopPreview */,
+				48F22D5426BE9F1500C8EC3E /* VideoPlayer */,
 				482A6926257304AE00EF2363 /* StandardHomeMovie.swift */,
 			);
 			path = Components;
